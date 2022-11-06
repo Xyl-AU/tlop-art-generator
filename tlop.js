@@ -1,3 +1,5 @@
+const colorRegex = RegExp(/^#(?:[0-9a-fA-F]{3}){1,2}$/);
+
 function updateText() {
     document.querySelectorAll(".primaryText").forEach(e => {
         e.textContent = document.querySelector("#primaryInput").value.toUpperCase();
@@ -60,6 +62,14 @@ async function save() {
         };
         reader.readAsDataURL(blob);
     });
+}
+
+function expandHex(hex) {
+    if (hex.length == 4) {
+        return `#${hex.slice(1).split("").map(char => { return char + char }).join("")}`;
+    } else {
+        return hex;
+    }
 }
 
 document.querySelector("#saveButton").addEventListener("click", () => save());
@@ -134,13 +144,31 @@ document.querySelector("#secondImage").addEventListener("change", e => {
 });
 
 document.querySelector("#backgroundColor").addEventListener("change", e => {
-    document.querySelector("label[for=backgroundColor]").textContent = "Background colour: " + e.target.value;
-    document.querySelector("#svg").style.background = e.target.value;
+    if (e.target.value.match(colorRegex)) {
+        document.querySelector("#svg").style.background = e.target.value;
+        document.querySelector("#backgroundColorPicker").value = expandHex(e.target.value);
+    }
+});
+
+document.querySelector("#backgroundColorPicker").addEventListener("change", e => {
+    if (e.target.value.match(colorRegex)) {
+        document.querySelector("#svg").style.background = e.target.value;
+        document.querySelector("#backgroundColor").value = e.target.value;
+    }
 });
 
 document.querySelector("#textColor").addEventListener("change", e => {
-    document.querySelector("label[for=textColor]").textContent = "Text colour: " + e.target.value;
-    document.querySelector("#svg").style.fill = e.target.value;
+    if (e.target.value.match(colorRegex)) {
+        document.querySelector("#svg").style.fill = e.target.value;
+        document.querySelector("#textColorPicker").value = expandHex(e.target.value);
+    }
+});
+
+document.querySelector("#textColorPicker").addEventListener("change", e => {
+    if (e.target.value.match(colorRegex)) {
+        document.querySelector("#svg").style.fill = e.target.value;
+        document.querySelector("#textColor").value = e.target.value;
+    }
 });
 
 addEventListener("load", () => {

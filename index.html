@@ -104,10 +104,12 @@
             <input id="secondImage" name="secondImage" type="file" accept="image/*">
             <label for="secondImage" class="fileInput">BOTTOM IMAGE</label>
             <p>Recommended resolution: 547 x 469</p><br>
-            <input type="color" id="backgroundColor" name="backgroundColor" value="#F58B57">
-            <label for="backgroundColor" class="colorInput">Background colour: #F58B57</label><br>
-            <input type="color" id="textColor" name="textColor" value="#000000">
-            <label for="textColor" class="colorInput">Text colour: #000000</label><br>
+            <div style="display: flex;"><input value="#F58B57" id="backgroundColor" class="textInput" autocomplete="off">
+                <label for="backgroundColorPicker" class="colorPicker"></label><input type="color" value="#F58B57" id="backgroundColorPicker" class="colorPicker"></span></span></div>
+            <p>Background colour</p><br>
+            <div style="display: flex;"><input value="#000000" id="textColor" class="textInput" autocomplete="off">
+                <label for="textColorPicker" class="colorPicker"></label><input type="color" value="#000000" id="textColorPicker" class="colorPicker"></span></span></div>
+            <p>Text colour</p><br>
         </div>
     </body>
 </html>

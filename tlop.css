@@ -49,14 +49,13 @@ h1 {
     font-family: HelveticaBold;
     text-transform: uppercase;
     text-align: center;
-    font-size: 32;
+    font-size: 32px;
     width: 100%;
     max-width: 800px;
     margin: auto;
     display: block;
     padding: 1px 0px;
-    min-height: 38px;
-    line-height: 38px;
+    box-sizing: border-box;
 }
 
 .textInput {
@@ -85,14 +84,14 @@ input[type="file"], input[type="color"] {
     margin: 0px 10%;
 }
 
-#leftAlign, #rightAlign, #quaternaryCheckbox {
+#leftAlign, #rightAlign, #quaternaryCheckbox, .colorPicker {
     background: rgba(127, 127, 127, 0.1);
     border: none;
     border-bottom: solid 3px rgba(0, 0, 0, 0.35);
     font-family: HelveticaBold;
     text-transform: uppercase;
     text-align: center;
-    font-size: 32;
+    font-size: 32px;
     width: 100%;
     max-width: 800px;
     margin: auto;
@@ -124,6 +123,11 @@ input[type="file"], input[type="color"] {
 
 #quaternaryCheckbox {
     background-color: rgba(0, 0, 0, 0.3);
+}
+
+.colorPicker {
+    background-color: rgba(0, 0, 0, 0.3);
+    background-image: url("./resources/colour-picker.svg");
 }
 
 #quaternaryCheckbox.enabled {
