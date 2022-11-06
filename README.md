@@ -6,4 +6,4 @@ Images are resized to the height of the original and centred on the centre of th
 
 <https://tlop.xyl.sh>
 
-![The Life of Sneed](https://files.catbox.moe/7f3cvn.png)
+![The Life of Sneed](https://tlop.xyl.sh/resources/example.png)
