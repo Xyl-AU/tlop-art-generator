@@ -111,20 +111,24 @@ document.addEventListener("drop", e => {
     e.preventDefault();
 });
 
-document.querySelector("#image1").addEventListener("drop", e => {
-    e.preventDefault();
-    if (e.dataTransfer.files[0].type.startsWith("image/")) {
-        document.querySelector("label[for=firstImage]").textContent = e.dataTransfer.files[0].name;
-        updateImage(e.dataTransfer.files[0], document.querySelector("#image1"));
-    }
+document.querySelectorAll("#image1, label[for=firstImage]").forEach(d => {
+    d.addEventListener("drop", e => {
+        e.preventDefault();
+        if (e.dataTransfer.files[0].type.startsWith("image/")) {
+            document.querySelector("label[for=firstImage]").textContent = e.dataTransfer.files[0].name;
+            updateImage(e.dataTransfer.files[0], document.querySelector("#image1"));
+        }
+    });
 });
 
-document.querySelector("#image2").addEventListener("drop", e => {
-    e.preventDefault();
-    if (e.dataTransfer.files[0].type.startsWith("image/")) {
-        document.querySelector("label[for=secondImage]").textContent = e.dataTransfer.files[0].name;
-        updateImage(e.dataTransfer.files[0], document.querySelector("#image2"));
-    }
+document.querySelectorAll("#image2, label[for=secondImage]").forEach(d => {
+    d.addEventListener("drop", e => {
+        e.preventDefault();
+        if (e.dataTransfer.files[0].type.startsWith("image/")) {
+            document.querySelector("label[for=secondImage]").textContent = e.dataTransfer.files[0].name;
+            updateImage(e.dataTransfer.files[0], document.querySelector("#image2"));
+        }
+    });
 });
 
 document.querySelectorAll("input").forEach(e => {
